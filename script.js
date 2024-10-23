@@ -1,9 +1,10 @@
 'use strict'
 new class EventManager {
+    handlers = {}
     constructor(arg, arg2) {
 
     }
-    on(){
+    on(eName, eHandler){
 
     }
     off(){
