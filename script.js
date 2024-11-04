@@ -1,30 +1,17 @@
 'use strict'
-const myObj = {
-    pos1: {
-        name: 'phone',
+
+
+const product = {
+    name: 'phone',
         price: '400',
-        isAvailable: true
-    },
-    pos2: {
-        name: 'tablet',
-        price: '600',
-        isAvailable: true
-    },
-    pos3: {
-        name: 'laptop',
-        price: '1000',
-        isAvailable: true
-    },
-    pos4: {
-        name: 'TV',
-        price: '500',
-        isAvailable: true
-    },
-    pos5: {
-        name: 'clock',
-        price: '200',
-        isAvailable: true
-    },
-    
+        isAvailable: false
 }
-console.log(myObj);
+
+
+function parsePrice(obj) {
+    const {name, price, isAvailable} = obj
+    let available = isAvailable ? 'Yes' : 'No'
+    console.log(`Товар: ${name}, Ціна: ${price}$, В наявності: ${available}`)
+}
+
+parsePrice(product)

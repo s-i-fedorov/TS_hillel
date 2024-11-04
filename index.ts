@@ -1,39 +1,23 @@
-function parsePrice(price) {
-    const priseCopy = price
-    let outInfo = []
-    for (const key in priseCopy) {
-        if (Object.prototype.hasOwnProperty.call(priseCopy, key)) {
-            const element = priseCopy[key];
-            
-        }
-    }
-}
-
-const myObj = {
-    pos1: {
+const prod1 = {
         name: 'phone',
         price: '400',
         isAvailable: true
-    },
-    pos2: {
+    }
+const prod2 = {
         name: 'tablet',
         price: '600',
         isAvailable: true
-    },
-    pos3: {
+    }
+const prod3 = {
         name: 'laptop',
         price: '1000',
         isAvailable: true
-    },
-    pos4: {
-        name: 'TV',
-        price: '500',
-        isAvailable: true
-    },
-    pos5: {
-        name: 'clock',
-        price: '200',
-        isAvailable: true
-    },
-    
+    }
+
+function parsePrice(obj):void {
+    const name:string = obj.name
+    const price:number = obj.price
+    const isAvailable:boolean = obj.isAvailable
+    let available: string = isAvailable ? 'Yes' : 'No'
+    console.log(`Товар: ${name}, Ціна: ${price}$, В наявності: ${available}`)
 }
