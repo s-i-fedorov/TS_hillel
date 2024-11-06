@@ -1,7 +1,7 @@
 type SimpleArray = (string|number)[]
-const array:SimpleArray = [1,2,3,4,5,6,7,8,9,10]
+const array:SimpleArray = []
 function reverseArr(arr:SimpleArray): SimpleArray{
-    if (arr.length === 0) console.log('Error, array is empty')
+    if (arr.length === 0) throw new Error('Array is empty')
     let temp:number|string = 0
     let start:number = 0
     let end:number = arr.length-1

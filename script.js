@@ -1,7 +1,7 @@
 'use strict'
 const array = [1,2,3,4,5,6,7,8,9,10]
 function reverseArr(arr){
-    if (arr.length === 0) return 'error'
+    if (arr.length === 0) throw new Error('Array is empty')
     let s = 0
     let e = arr.length-1
     while (s<e){
