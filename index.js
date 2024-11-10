@@ -62,3 +62,17 @@ function printInfo(obj) {
 }
 console.log(printInfo(person1));
 console.log(printInfo(person2));
+function applySettings(object) {
+    const notifications = object.notifications ? 'Yes' : 'No';
+    const autoSave = object.autoSave.enabled ? 'Yes' : 'No';
+    return `Current theme: ${object.theme}, notifications: ${notifications}, autosave: ${autoSave}`;
+}
+const settingsExample = {
+    theme: "light",
+    notifications: true,
+    autoSave: {
+        enabled: false,
+        interval: 60
+    }
+};
+console.log(applySettings(settingsExample));

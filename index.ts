@@ -102,3 +102,25 @@ console.log(printInfo(person1))
 console.log(printInfo(person2))
 
 // 4. Створення інтерфейсу для зчитування налаштувань
+interface Settings {
+    theme: "light" | "dark",
+    notifications: boolean,
+    autoSave: {
+        enabled: boolean,
+        interval: number
+    }
+}
+function applySettings(object:Settings):string {
+    const notifications = object.notifications ? 'Yes' : 'No'
+    const autoSave = object.autoSave.enabled ? 'Yes' : 'No'
+return `Current theme: ${object.theme}, notifications: ${notifications}, autosave: ${autoSave}`
+}
+const settingsExample:Settings = {
+    theme: "light",
+    notifications: true,
+    autoSave:{
+        enabled: false,
+        interval: 60
+    }
+}
+console.log(applySettings(settingsExample))
