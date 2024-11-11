@@ -23,6 +23,5 @@ function clickHandler(e){
     else if (target.hasAttribute('data-btn2')) {
         document.querySelector('[data-sentence]').innerHTML = text
     }
-    // console.log(target.hasAttribute('data-btn1'))
 }
 document.body.addEventListener("click", clickHandler)
