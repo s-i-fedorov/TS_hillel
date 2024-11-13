@@ -1,17 +1,28 @@
 'use strict'
 new class EventManager {
     handlers = {}
-    constructor(arg, arg2) {
 
-    }
     on(eName, eHandler){
-
+        if(Array.isArray(this.handlers[eName])){
+            this.handlers[eName].push(eHandler)
+            return
+        }
+        this.handlers[eName] = [eHandler]
     }
-    off(){
+    off(eName, eHandler){
+        if(!this.handlers[eName]) return;
 
+        const index = this.handlers.findIndex((existingHandler)=>{
+            return existingHandler === eHandler
+        })
+
+        this.handlers[eName].splice(index, 1)
     }
-    trigger(){
-        
+    trigger(eName){
+        if(!this.handlers[eName]) return
+        this.handlers[eName].forEach((handler)=>{
+            handler(eName, this)
+        })
     }
 
 }
