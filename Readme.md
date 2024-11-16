@@ -4,7 +4,7 @@
 
 Умови:
 
-1. Функція має мати наступний тип:
+1. Функція має мати наступний тип:<br/>
    <code>function filterByProperty<T, K extends keyof T>(array: T[], property: K, value: T[K]): T[]</code>
 
 T — це тип об'єктів у масиві.
