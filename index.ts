@@ -17,9 +17,6 @@ function deepClone(obj:Example): {}|[]{
 
 interface Example {
     [key:string]:string|number|number[]|string[]|{}
-    // a: number,
-    // b: {c:number},
-    // d: number[]
 }
 
 const original:Example = { a: 1, b: { c: 2 }, d: [3, 4] };
