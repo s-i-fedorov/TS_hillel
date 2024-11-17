@@ -1,1 +1,10 @@
-### ↓↓ Опис ДЗ ↓↓ 
+### ↓↓ Опис ДЗ ↓↓
+### ДЗ 11. Реалізація Моделі Даних з Використанням Record
+
+<div class="ql-editor"><h4>Опис</h4><p>Уявімо, що ти розробляєш систему управління університетом. 
+Тобі потрібно створити модель для зберігання інформації про студентів та їхні оцінки в різних предметах.
+У цій моделі буде використовуватись <code>Record</code>, щоб зручно оперувати інформацією.</p>
+<h4>Деталі</h4><ol><li>Створити інтерфейс <code>Student</code>, що містить наступні поля:</li></ol><ul>
+<li class="ql-indent-1"><code>id</code> — унікальний ідентифікатор студента (рядок).</li>
+<li class="ql-indent-1"><code>name</code> — ім'я студента (рядок).</li><li class="ql-indent-1">
+<code>age</code> — вік студента (число).</li></ul><ol><li>Створити тип <code>Subject</code>, який представлятиме можливі предмети, наприклад: <code>Math</code>, <code>Science</code>, <code>Literature</code>, <code>History</code>.</li><li>Створити тип <code>Grades</code>, який буде <code>Record&lt;Subject, number&gt;</code>. Це буде об'єкт, де ключами будуть предмети, а значеннями — оцінки студента за кожен з предметів (значення типу <code>number</code> від 0 до 100).</li><li>Створити інтерфейс <code>UniversityRecord</code>, що містить поля:</li></ol><ul><li class="ql-indent-1"><code>students</code> — об'єкт типу <code>Record&lt;string, Student&gt;</code>, де ключем буде <code>id</code> студента, а значенням об'єкт типу <code>Student</code>.</li><li class="ql-indent-1"><code>grades</code> — об'єкт типу <code>Record&lt;string, Grades&gt;</code>, де ключем буде <code>id</code> студента, а значенням об'єкт типу <code>Grades</code>, який зберігає оцінки студента за предметами.</li></ul><ol><li>Створити декілька тестових записів <code>UniversityRecord</code>, додавши кілька студентів та їхні оцінки з різних предметів.</li><li>Написати функцію <code>getStudentGrades</code>, яка приймає <code>universityRecord: UniversityRecord</code> та <code>studentId: string</code>, і повертає оцінки студента за предметами.</li><li>Написати функцію <code>getAverageGrade</code>, яка приймає <code>universityRecord: UniversityRecord</code> та <code>subject: Subject</code>, і повертає середню оцінку всіх студентів по зазначеному предмету.</li></ol></div>
