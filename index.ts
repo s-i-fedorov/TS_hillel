@@ -13,23 +13,8 @@ const users: User[] = [
 
 
 function filterByProperty<T, K extends keyof T>(array: T[], property: K, value: T[K]): T[] {
-    const a =
+    return array.filter(item=>item[property]===value)
 }
 
-const activeUsers = filterByProperty(users, 'isActive', true);
+const activeUsers = filterByProperty(users, 'isActive', false);
 console.log(activeUsers);
-
-// interface Person {
-//     name: string;
-//     age: number;
-// }
-//
-// function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
-//     return obj[key];
-// }
-//
-// const person: Person = { name: "Alice", age: 25 };
-// const name1 = getProperty(person, "name"); // T = Person, K = "name" (result: string)
-// const age = getProperty(person, "age"); // T = Person, K = "age" (result: number)
-// console.log('name: ', name1)
-// console.log('age: ', age)
