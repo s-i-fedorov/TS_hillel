@@ -76,3 +76,9 @@ function updateOrderStatus(order: Order, status: OrderStatus):void {
 }
 //     Написати функцію getOrdersByStatus, яка приймає масив orders: Order[] і status: OrderStatus, і повертає
 //     всі замовлення з відповідним статусом.
+function getOrdersByStatus(orders: Order[], status: OrderStatus):Order[]|null {
+    const result = orders.filter((item)=>{
+        item[status] === status
+    })
+    return []
+}
