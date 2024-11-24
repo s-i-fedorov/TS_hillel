@@ -30,4 +30,4 @@ function getAverageGrade(universityRecord, subject) {
     return result / valuesArr.length;
 }
 console.log(getStudentGrades(universityRecord, '3'));
-getAverageGrade(universityRecord, 'Math');
+console.log(getAverageGrade(universityRecord, 'Math'));
