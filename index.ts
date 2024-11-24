@@ -6,24 +6,13 @@ interface Student {
 
 type Subject = 'Math' | 'Science' | 'Literature' | 'History'
 
-//     Створити тип Grades, який буде Record<Subject, number>. Це буде об'єкт, де ключами
-//     будуть предмети, а значеннями — оцінки студента за кожен з предметів (значення типу number
-//     від 0 до 100).
 type Grades = Record<Subject, number>
 
-
-// Створити інтерфейс UniversityRecord, що містить поля:
-//     students — об'єкт типу Record<string, Student>, де ключем буде id студента, а значенням об'єкт
-//     типу Student.
-//     grades — об'єкт типу Record<string, Grades>, де ключем буде id студента, а значенням об'єкт
-//     типу Grades, який зберігає оцінки студента за предметами.
 interface UniversityRecord {
     students: Record<string, Student>,
     grades: Record<string, Grades>
 }
 
-// Створити декілька тестових записів UniversityRecord, додавши кілька студентів та їхні оцінки з різних
-// предметів.
 const universityRecord: UniversityRecord = {
     students: {
         "s1": { id: "1", name: "Alex", age: 19 },
@@ -38,14 +27,21 @@ const universityRecord: UniversityRecord = {
 };
 //     Написати функцію getStudentGrades, яка приймає universityRecord: UniversityRecord та studentId: string,
 //     і повертає оцінки студента за предметами.
-function getStudentGrades (universityRecord: UniversityRecord, studentId: string): Grades {
-    const findingKey = (()=>{
-        for (const key in universityRecord.students){
-            if (universityRecord.students[key].id === studentId) return key
-        }
-    })()
-
-    return universityRecord.grades.findingKey
+function getStudentGrades (universityRecord: UniversityRecord, studentId: string): Grades|void {
+    const findKey = Object.keys(universityRecord.students).
+    find(item=>universityRecord.students[item].id === studentId)
+    if (!findKey) return console.error('student was not find')
+    return universityRecord.grades[findKey]
 }
 //     Написати функцію getAverageGrade, яка приймає universityRecord: UniversityRecord та subject: Subject,
 //     і повертає середню оцінку всіх студентів по зазначеному предмету.
+function getAverageGrade (universityRecord: UniversityRecord, subject: Subject): number {
+    const valuesArr = Object.values(universityRecord.grades);
+    const result = valuesArr.reduce((acc,item)=>{
+        return acc + item[subject]
+    },0)
+    return result/valuesArr.length
+}
+
+console.log(getStudentGrades(universityRecord, '3'));
+getAverageGrade(universityRecord, 'Math')
