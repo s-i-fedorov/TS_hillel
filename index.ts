@@ -6,7 +6,7 @@ function deepClone(obj:Example): {}|[]{
         if(obj.length===0) return []
         return obj.map(item=>deepClone(item))
     }
-    const objCopy:{[key:string]:string|number|{}|[]} = {}
+    const objCopy:{[key:string]:unknown} = {}
     for (const key in obj) {
 
             objCopy[key] = deepClone(obj[key]);
@@ -16,7 +16,7 @@ function deepClone(obj:Example): {}|[]{
 }
 
 interface Example {
-    [key:string]:string|number|number[]|string[]|{}
+    [key:string]:unknown
 }
 
 const original:Example = { a: 1, b: { c: 2 }, d: [3, 4] };
