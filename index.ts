@@ -38,14 +38,14 @@ const universityRecord: UniversityRecord = {
 };
 //     Написати функцію getStudentGrades, яка приймає universityRecord: UniversityRecord та studentId: string,
 //     і повертає оцінки студента за предметами.
-function getStudentGrades (universityRecord: UniversityRecord, studentId: string): Record<string,Grades> {
-    const {students} = universityRecord;
-    const studId = ()=>{
+function getStudentGrades (universityRecord: UniversityRecord, studentId: string): Grades {
+    const findingKey = (()=>{
+        for (const key in universityRecord.students){
+            if (universityRecord.students[key].id === studentId) return key
+        }
+    })()
 
-    }
-    return {
-        studentId: universityRecord[]
-    }
+    return universityRecord.grades.findingKey
 }
 //     Написати функцію getAverageGrade, яка приймає universityRecord: UniversityRecord та subject: Subject,
 //     і повертає середню оцінку всіх студентів по зазначеному предмету.
