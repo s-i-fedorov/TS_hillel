@@ -3,38 +3,58 @@ const orders = [
     {
         id: "order1",
         amount: 150.5,
-        status: OrderStatus.Pending,
-        paymentType: PaymentType.CreditCard
+        status: 'Pending',
+        paymentType: 'CreditCard'
     },
     {
         id: "order2",
         amount: 250.0,
-        status: OrderStatus.Processing,
-        paymentType: PaymentType.PayPal
+        status: 'Processing',
+        paymentType: 'PayPal'
     },
     {
         id: "order3",
         amount: 500.99,
-        status: OrderStatus.Shipped,
-        paymentType: PaymentType.BankTransfer
+        status: 'Shipped',
+        paymentType: 'BankTransfer'
     },
     {
         id: "order4",
         amount: 120.0,
-        status: OrderStatus.Delivered,
-        paymentType: PaymentType.CashOnDelivery
+        status: 'Delivered',
+        paymentType: 'CashOnDelivery'
     },
     {
         id: "order5",
         amount: 75.0,
-        status: OrderStatus.Canceled,
-        paymentType: PaymentType.PayPal
+        status: 'Canceled',
+        paymentType: 'PayPal'
+    },
+    {
+        id: "order6",
+        amount: 75.0,
+        status: 'Canceled',
+        paymentType: 'PayPal'
     }
 ];
-
-function getOrdersByStatus(orders, statusf){
-    const result = orders.filter((item)=>{
-        item[status] === statusf
-    })
-    return []
+const a = {
+    id: "order7",
+    amount: 95.0,
+    status: 'Processing',
+    paymentType: 'PayPal'
 }
+
+function updateOrderStatus(order, status){
+    const oldStatus = order.status
+    order.status = status
+    console.log(`Status ${oldStatus} changed to ${status}`)
+}
+updateOrderStatus(a, 'Delivered')
+console.log(a);
+function getOrdersByStatus(orders, findStatus){
+
+    return orders.filter(item=>
+        item.status === findStatus)
+}
+
+console.log(getOrdersByStatus(orders, 'Canceled'));
