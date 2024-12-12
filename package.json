@@ -2,7 +2,7 @@
   "name": "ts_hillel",
   "version": "1.0.0",
   "description": "ДЗ 3. Імітація приватних змінних через замикання",
-  "main": "script.js",
+  "main": "js/script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
