@@ -1,9 +1,3 @@
-// Створити enum OrderStatus, який представлятиме можливі статуси замовлення:
-//     Pending — замовлення очікує підтвердження.
-//     Processing — замовлення в обробці.
-//     Shipped — замовлення відправлено.
-//     Delivered — замовлення доставлено.
-//     Canceled — замовлення скасовано.
 enum OrderStatus {
     Pending = 0,
     Processing = 1,
@@ -12,11 +6,6 @@ enum OrderStatus {
     Canceled = 4,
 }
 
-//     Створити enum PaymentType, який представлятиме типи оплати:
-//     CreditCard — оплата кредитною карткою.
-//     PayPal — оплата через PayPal.
-//     BankTransfer — оплата через банківський переказ.
-//     CashOnDelivery — оплата при доставці.
 enum PaymentType {
     CreditCard = 0,
     PayPal = 1,
@@ -24,11 +13,6 @@ enum PaymentType {
     CashOnDelivery = 3
 }
 
-//     Створити інтерфейс Order, який містить поля:
-//     id — унікальний ідентифікатор замовлення (типу string).
-// amount — загальна сума замовлення (типу number).
-// status — статус замовлення (типу OrderStatus).
-// paymentType — тип оплати (типу PaymentType).
 interface Order {
     id: string,
     amount: number,
@@ -69,16 +53,18 @@ const orders: Order[] = [
         paymentType: PaymentType.PayPal
     }
 ];
-//     Написати функцію updateOrderStatus, яка приймає order: Order і status: OrderStatus, оновлює статус
-//     замовлення, а також виводить у консоль повідомлення про зміну статусу.
+//     Написати функцію updateOrderStatus
 function updateOrderStatus(order: Order, status: OrderStatus):void {
+    const oldStatus: OrderStatus = order.status
+    order.status = status
+    console.log(`Status ${oldStatus} changed to ${status}`)
+}
+updateOrderStatus(orders[2], 0)
 
+//     Написати функцію getOrdersByStatus
+function getOrdersByStatus(orders: Order[], findStatus: OrderStatus):Order[]|null {
+    return orders.filter(item=>
+        item.status === findStatus)
 }
-//     Написати функцію getOrdersByStatus, яка приймає масив orders: Order[] і status: OrderStatus, і повертає
-//     всі замовлення з відповідним статусом.
-function getOrdersByStatus(orders: Order[], status: OrderStatus):Order[]|null {
-    const result = orders.filter((item)=>{
-        item[status] === status
-    })
-    return []
-}
+
+console.log(getOrdersByStatus(orders, OrderStatus.Pending));
