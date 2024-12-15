@@ -13,7 +13,9 @@
 //          removeStudent(studentId) — видаляє студента з курсу за його id.
 //          listStudents() — повертає список студентів на курсі.
 
-import User from "./user";
+
+import User from "./user.js";
+import Teacher from "./teacher.js";
 
 export default class Course {
     static id = 0;
@@ -22,12 +24,17 @@ export default class Course {
     #students = [];
 
     constructor(name, teacher) {
+        this.#validateTeacher(teacher)
         this.id = Course.id
         Course.id+=1
         this.name = name;
         this.teacher = teacher;
     }
 
+    #validateTeacher(teacher){
+        if (!(teacher instanceof Teacher))
+            throw new Error('This person is not a teacher')
+    }
     addStudent(student){
         if(!(student instanceof User)) return;
         this.#students.push(student)
@@ -35,7 +42,7 @@ export default class Course {
     removeStudent(studentId){
         if( typeof(studentId) !== "number")
             throw new Error('student id should be a number')
-        const studentIndex = this.#students.findIndex(studentId)
+        const studentIndex = this.#students.findIndex(item => item.id === studentId)
         this.#students.splice(studentIndex, 1)
     }
     get listStudents(){

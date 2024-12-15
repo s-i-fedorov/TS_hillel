@@ -8,9 +8,15 @@ import Course from "../classes/course.js";
 const serg = new User('serhii','serg@gmail.com')
 const miha = new User('miha','miha@gmail.com')
 const leoTeach = new Teacher('leo', 'leo@mao.com')
+const subjMath = new Course('math', leoTeach)
+subjMath.addStudent(serg)
+subjMath.addStudent(miha)
+subjMath.removeStudent(0)
 leoTeach.addSubject('math')
 leoTeach.addSubject('bio')
-console.log(serg)
-console.log(serg.info);
-console.log(miha.info);
+// console.log(serg)
+// console.log(serg.info);
+// console.log(miha.info);
 console.log(leoTeach);
+console.log(subjMath)
+console.log(subjMath.listStudents);
