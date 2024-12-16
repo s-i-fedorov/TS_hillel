@@ -30,7 +30,8 @@ export default class CourseManager {
         if (!(teacher instanceof Teacher))
             throw new Error('This person is not a teacher')
     }
-    addUser(user){
+    addUser(user, email){
+        new User(user, email)
     }
 // addCourse(course) — додає курс до системи.
 // assignTeacherToCourse(courseId, teacherId) — призначає викладача до курсу.
